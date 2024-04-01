@@ -22,14 +22,13 @@ def predict():
     clf.fit(X_train, y_train)
 
     if request.method == 'POST':
-        data = request.get_json()  
-        comment = data['comment'] 
+        data = request.get_json()
+        comment = data['comment']
         vect = cv.transform([comment]).toarray()
         my_prediction = clf.predict(vect)
 
         # Return the prediction as JSON
-
-        return jsonify({'prediction': int(my_prediction[0])})  
+        return jsonify({'prediction': int(my_prediction[0])})
 
 if __name__ == '__main__':
     application.run(debug=False, host='0.0.0.0')

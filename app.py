@@ -10,7 +10,7 @@ CORS(application)
 
 @application.route('/webview/predict', methods=['POST'])
 def predict():
-    data_frame = pd.read_csv("../datasets/comments.csv").dropna(subset=['Comment'])
+    data_frame = pd.read_csv("./comments.csv").dropna(subset=['Comment'])
     df_data = data_frame[["Comment", "CLASS"]]
     df_x = df_data['Comment']
     df_y = df_data.CLASS
